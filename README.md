@@ -1,7 +1,11 @@
 Cero Programming Language
 =========================
 
-Cero is a slightly modified variant of C++. It compiles cero files into C++ and then builds using the C++ compiler. It is fully compatible with C/C++ code. Cero requires a C++11 compiler. Currently it works only on Linux.
+Cero is a slightly modified variant of C++. It compiles cero files into C++ and then builds using the C++ compiler. 
+
+Cero is fully compatible with C/C++ code. 
+
+Cero requires a C++11 compiler (or later). Currently it works only on Linux.
 
 Cero has the following modifications compared to C++:
 * No semicolons
