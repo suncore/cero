@@ -1,0 +1,34 @@
++++ private
+
+#include <iostream>
+#include <vector>
+
+using namespace std
+
+import vec3d
+
+-decl
+
+int main(int argc, char *argv[])
+
+    vector<vec3d> vs
+    vec3d t
+    vec3d sum(0,0,0)
+
+    for i := 0..100
+        rand_vec3d(t)
+        vs.push_back(t)
+    
+    for auto v : vs
+        sum = sum + v
+
+    sum2 := sum.x + sum.y + sum.z
+
+    printsum(sum2)
+        
+    return 0
+
+    
+-void printsum(r64 s)
+    cout << s
+    

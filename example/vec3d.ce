@@ -1,0 +1,46 @@
++++ public
+#include <stdlib.h>
+
+import base
+
+class vec3d
+  public:
+
+    r64 x,y,z
+    
+    vec3d(r64 X, r64 Y, r64 Z)
+        x = X
+        y = Y
+        z = Z
+
+    vec3d(const vec3d& v)
+        x = v.x
+        y = v.y
+        z = v.z
+
+    vec3d()  {}
+
+    vec3d operator+(const vec3d& v) const
+        vec3d r
+        r.x = x + v.x
+        r.y = y + v.y
+        r.z = z + v.z
+        return r
+
+    vec3d operator-(const vec3d& v) const
+        vec3d r
+        r.x = x - v.x
+        r.y = y - v.y
+        r.z = z - v.z
+        return r
+
++decl
+        
++++ private
+
+import vec3d
+
++void rand_vec3d(vec3d& v)
+    v.x = r64(rand())/RAND_MAX;
+    v.y = r64(rand())/RAND_MAX;
+    v.z = r64(rand())/RAND_MAX;
