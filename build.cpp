@@ -6,10 +6,10 @@
 
 
 
-static string cflags="-Wall -O3 -c";
+static string cflags="-Wall -O3 -std=c++11 -c";
 static string lflags="";
 static string exe="a.out";
-static string cc="gcc";
+static string cc="g++";
 static string objs = " ";
 static string path_env = ".";
 static vector<string> paths;
