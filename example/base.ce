@@ -1,4 +1,4 @@
-+++ public
+[public]
 
 typedef unsigned char u8       /* unsigned 8 bit   0 to 255         */
 typedef signed char s8         /* signed 8 bit     -128 to 127      */

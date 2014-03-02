@@ -1,4 +1,4 @@
-+++ public
+[public]
 #include <stdlib.h>
 
 import base
@@ -34,9 +34,9 @@ class vec3d
         r.z = z - v.z
         return r
 
-+decl
+[+decl]
         
-+++ private
+[private]
 
 import vec3d
 

@@ -1,4 +1,4 @@
-+++ private
+[private]
 
 #include <iostream>
 #include <vector>
@@ -7,7 +7,7 @@ using namespace std
 
 import vec3d
 
--decl
+[-decl]
 
 int main(int argc, char *argv[])
 
