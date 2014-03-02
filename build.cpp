@@ -87,13 +87,13 @@ static bool compile(string name, bool build_all)
         bool x = getline(infile, s);
         if (!x) 
             break;
-        else if (s == "+++ public")
+        else if (s == "[public]")
         {
             input = &pub;
             pub.push_back(string(""));
             priv.push_back(string(""));
         }
-        else if (s == "+++ private")
+        else if (s == "[private]")
         {
             input = &priv;
             pub.push_back(string(""));
@@ -136,12 +136,12 @@ static bool compile(string name, bool build_all)
     {
         for (string& s : priv)
         {
-            if (s[0] == '+' && s != "+decl")
+            if (s[0] == '+')
             {
                 s.erase(0,1);
                 decl_pub.push_back(s);
             }
-            else if (s[0] == '-' && s != "-decl")
+            else if (s[0] == '-')
             {
                 s.erase(0,1);
                 s = "static " + s;
@@ -150,7 +150,7 @@ static bool compile(string name, bool build_all)
         }
         for (string& s : priv)
         {
-            if (s == "-decl")
+            if (s == "[-decl]")
             {
                 s = "#include \"" + outfilename_cpp + ".-decl\"";
                 cero2cpp(decl_priv);
@@ -182,7 +182,7 @@ static bool compile(string name, bool build_all)
     {
         for (string& s : pub)
         {
-            if (s == "+decl")
+            if (s == "[+decl]")
             {
                 s = "#include \"" + outfilename_h + ".+decl\"";
                 cero2cpp(decl_pub);
