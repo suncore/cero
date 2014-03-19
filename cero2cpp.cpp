@@ -316,7 +316,21 @@ void cero2cpp(vector<string>& inv)
                     if (n->lt == lt_normal)
                         break;
                 }
-                if (n && (n->indent <= l.indent))
+                line* p = NULL;
+                bool skipSemi = FALSE;
+                // search for previous normal line
+                if (i > 1)
+                    for (j = i-1; j >= 0; j--)
+                    {
+                        p = &input[j];
+                        if ((p->lt == lt_normal) && (p->indent != l.indent))
+                        {
+                            if ((p->s.find("enum ") != string::npos) && (p->indent <= l.indent))
+                                skipSemi = TRUE;
+                            break;
+                        }
+                    }
+                if (!skipSemi && n && (n->indent <= l.indent))
                     l.s += ";";
             }
         }

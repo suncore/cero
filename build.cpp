@@ -200,11 +200,15 @@ static bool compile(string name, bool build_all)
         cero2cpp(pub);
         ofstream outfile;
         open_outfile(outfile, "build/" + outfilename_h);
+        outfile << "#ifndef " + name + "_h\n";
+        outfile << "#define " + name + "_h\n";
         for (i = 0; i < (int)pub.size()-1; i++)
         {
             string s = pub[i];
-            outfile << s + "\n";
+            if (!((i == 0 || i == 1) && s == "")) // this if statement says that we try to reuse empty lines for the inserted #ifndef/#define above which usually works, to preserve line numbers
+                outfile << s + "\n";
         }
+        outfile << "#endif\n";
         cout << "created build/" + outfilename_h + "\n";
         outfile.close();
         rebuilt = true;

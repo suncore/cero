@@ -15,7 +15,7 @@ int syscall(string dir, string s)
 {
     int r;
     if (dir != ".")
-        s = "( cd " + dir + "; " + s + " )";
+        s = "( cd " + dir + "; " + s + " ) 2>&1";
     cout << "syscall: " << s << "\n";
     r = system(s.c_str());
     if (r == -1)
