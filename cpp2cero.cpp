@@ -139,6 +139,11 @@ void cpp2cero(string infilename, string outfilename)
         bool x = getline(infile, s);
         if (!x)
             break;
+        int len = s.length();
+        if (s[len-1] == '\r')
+        {
+            s.erase(len-1,1);
+        }
         l.s = s;
         input.push_back(l);
     }
